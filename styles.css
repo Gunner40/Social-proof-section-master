@@ -85,16 +85,7 @@ main {
   padding: 6em 2em;
 }
 
-/**** layout styles from 550px to 800px  ****/
-
-@media screen and (min-width: 550px) {
-  main {
-    padding: 6em 4em;
-  }
-}
-
 .hero {
-  /* margin-bottom: 3em; */
   text-align: center;
 }
 
@@ -120,6 +111,14 @@ main {
 
 .testimonial__card {
   margin-bottom: 1em;
+}
+
+/**** layout styles from 550px to 800px  ****/
+
+@media screen and (min-width: 550px) {
+  main {
+    padding: 6em 4em;
+  }
 }
 
 /**** layout styles between 800px and 1200px  ****/
