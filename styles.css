@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
+
+/* note: as an experiment I separated the element styles and the layout styles. So first I styled each element, and then later I added the layout styles incl margin and padding and flexbox. (On reflection I wont do this again as I had to reuse the same selectors too much, which is overkill) */
+
+/* resets styles  */
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* custom variables  */
+
+:root {
+  --color-primary-1: hsl(300, 43%, 22%);
+  --color-primary-2: hsl(333, 80%, 67%);
+  --color-neutral-dark: hsl(300, 14%, 87%);
+  --color-neutral-light: hsl(300, 24%, 96%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+}
+
+/* Basic styles  */
+
+body {
+  font-family: "League Spartan", sans-serif;
+  font-size: 15px;
+  background-color: var(--color-neutral-light);
+}
+
+/**** hero section element styles  ****/
+
+.hero__content__heading {
+  font-size: 2.5rem;
+  line-height: 0.8;
+  color: var(--color-primary-1);
+}
+
+.hero__content__text {
+  line-height: 1.4;
+}
+
+.hero__review {
+  background-color: var(--color-neutral-dark);
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
+.hero__review p {
+  color: var(--color-primary-1);
+  font-weight: 700;
+  padding-top: 0.5em;
+}
+
+/**** testimonial section element styles ****/
+
+.testimonial__card {
+  background-color: var(--color-primary-1);
+  color: var(--color-neutral-white);
+  border-radius: 0.5em;
+  padding: 2em;
+}
+
+.testimonial__profile {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.testimonial__card img {
+  border-radius: 100%;
+  width: 40px;
+}
+
+.testimonial__profile__status {
+  color: var(--color-primary-2);
+}
+
+/**** layout styles up to 550px  ****/
+
+main {
+  padding: 6em 2em;
+}
+
+/**** layout styles from 550px to 800px  ****/
+
+@media screen and (min-width: 550px) {
+  main {
+    padding: 6em 4em;
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+
+.hero {
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+.hero__content__heading {
+  max-width: 450px;
+  margin-inline: auto;
+  margin-bottom: 0.5em;
+}
+
+.hero__content__text {
+  margin-inline: auto;
+  margin-bottom: 2em;
+  max-width: 350px;
+}
+
+.hero__review {
+  margin-bottom: 1em;
+}
+
+.testimonial {
+  margin-top: 3em;
+}
+
+.testimonial__card {
+  margin-bottom: 1em;
+}
+
+/**** layout styles between 800px and 1200px  ****/
+
+@media screen and (min-width: 800px) {
+  .hero__content__heading {
+    font-size: 3rem;
+    max-width: 400px;
+    margin-inline: auto;
+    margin-bottom: 0.5em;
+  }
+
+  .testimonial {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .testimonial__card {
+    flex: calc(50% - 1em);
+    max-width: calc(50% - 0.5em);
+  }
+}
+
+/**** layout styles over 1200px  ****/
+
+@media screen and (min-width: 1200px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  main {
+    padding: 0;
+  }
+  .hero {
+    display: flex;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .hero > * {
+    flex-basis: 50%;
+  }
+
+  .hero__content__heading {
+    line-height: 0.9;
+  }
+  .hero__content__heading,
+  .hero__content__text {
+    margin-left: 0;
+  }
+
+  .hero__reviews {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__review {
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
+
+  .hero__review:nth-child(2) {
+    align-self: center;
+  }
+
+  .hero__review:nth-child(3) {
+    align-self: flex-end;
+  }
+
+  .hero__review img {
+    margin-left: 0.5em;
+  }
+
+  .hero__review p {
+    margin-left: 2em;
+  }
+
+  .testimonial {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+  }
+
+  .testimonial__card {
+    flex: 0 1 auto;
+    max-width: 320px;
+  }
+
+  .testimonial__card:nth-child(2) {
+    position: relative;
+    top: 1em;
+  }
+
+  .testimonial__card:last-child {
+    position: relative;
+    top: 2em;
+  }
+}
